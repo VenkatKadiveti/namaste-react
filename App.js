@@ -1,3 +1,6 @@
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+
 const h1Ele = React.createElement('h1',
     {
         className: 'helloWorld',
@@ -25,7 +28,7 @@ const parent = React.createElement(
             React.createElement(
                 'h2',
                 { id: 'h2' },
-                'Sub-Heading')
+                'Sub-Heading ffffff')
         ]
     )
 )
