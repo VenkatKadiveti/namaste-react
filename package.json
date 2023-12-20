@@ -4,8 +4,8 @@
   "description": "Namaste react tutorial",
 
   "scripts": {
-    "dev:build": "npx parcel index.html",
-    "prod:build": "npx parcel build index.html",
+    "dev:build": "parcel index.html",
+    "prod:build": "parcel build index.html",
     "test": "jest"
   },
   "repository": {

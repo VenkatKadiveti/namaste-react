@@ -1,36 +1,23 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 
-const h1Ele = React.createElement('h1',
-    {
-        className: 'helloWorld',
-        id: 'headeing',
-        name: 'heading'
-    },
-    'Hello world from React!'
-);
+const number = 1000;
 
-const rootEle = ReactDOM.createRoot(document.getElementById('root'));
+const reactElement = <h3>Noraml reacct elemet.</h3>
 
-// rootEle.render(h1Ele);
+const TitleComponent =() => <h2>My title.</h2>
 
-const parent = React.createElement(
-    'div',
-    { id: 'parent' },
-    React.createElement(
-        'div',
-        { id: 'child' },
-        [
-            React.createElement(
-                'h1',
-                { id: 'h1' },
-                'Heading'),
-            React.createElement(
-                'h2',
-                { id: 'h2' },
-                'Sub-Heading ffffff')
-        ]
+const HeadingComponent = () => {
+    return (
+        <div>
+            <h1 id="heading">Hello from Function component.</h1>
+            <TitleComponent />
+            {reactElement}
+            <h5>Number; {number}</h5>
+        </div>
     )
-)
+}
 
-rootEle.render(parent)
+const root = ReactDOM.createRoot(document.getElementById('root'));
+
+root.render(<HeadingComponent />)
