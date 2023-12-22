@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Namaste react tutorial",
   "scripts": {
-    "dev:build": "parcel index.html",
+    "start": "parcel index.html",
     "prod:build": "parcel build index.html",
     "test": "jest"
   },

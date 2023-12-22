@@ -1,0 +1,49 @@
+.restro-container {
+    padding: 0 125px;
+}
+.search-box {
+    width: 80%;
+}
+
+.search-input {
+    width: 40%;
+    padding: 10px;
+    border-radius: 15px;
+    border: 1px solid #bfbebd;
+    outline: none;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.noData {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.showmore-btn {
+    padding: 10px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.showmore-btn:hover {
+    padding: 10px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    color: #FFF;
+    background-color: #db430b;
+}
+
+.showmore{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
