@@ -3,6 +3,7 @@ import RestaurantCard from '../card/RestaurantCard';
 import API_URLS from '../../utils/apiUrls';
 import Loader from '../loader/Loader';
 import './body.scss';
+import useOnlineStatus from '../../utils/hooks/useOnlineStatus';
 
 const Body = () => {
 
@@ -10,6 +11,7 @@ const Body = () => {
     const [ searchString , setSearchString ] = useState('');
     const [ nextPage, setNextPage ] = useState(null);
     const [ showMoreFlag, setShowMore ] = useState(false);
+    const onlineStatus = useOnlineStatus()
 
     useEffect(() => {
        setTimeout(() => {
@@ -47,6 +49,14 @@ const Body = () => {
     const showMore = () => {
         setShowMore(true);
         fetchData(nextPage)
+    }
+
+    if(!onlineStatus) {
+        return (
+        <div className='offlineContainer'>
+            <h3>Ooops, Something went wrong. </h3>
+            <h5>Check you internet connection once and try again.</h5>
+        </div>)
     }
 
     return (

@@ -1,5 +1,5 @@
 .restro-container {
-    padding: 0 125px;
+    padding: 20px 125px;
 }
 .search-box {
     width: 80%;
@@ -46,4 +46,12 @@
     justify-content: center;
     align-items: center;
     padding: 10px;
+}
+
+.offlineContainer {
+    padding: 80px 125px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }

@@ -1,0 +1,149 @@
+.mainContainersection {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 85px 125px;
+    .aboutContainer {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+            .imgContainer {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                background-repeat: no-repeat;
+                flex-direction: column;
+                .profileImg {
+                    width: 400px;
+                    box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+                }
+                .myName {
+                    font-size: 20px;
+                    font-weight: 600;
+                    font-style: italic;
+                }
+            }
+
+            .userDetails {
+                display: flex;
+                flex-direction: column;
+                align-items: self-start;
+                justify-content: space-between;
+                max-width: 65%;
+                .titleName {
+                    padding-bottom: 25px;
+                    font-size: 30px;
+                    font-weight: 600;
+                    font-style: italic;
+                }
+                .aboutDesc {
+                    font-style: italic;
+                    font-family: system-ui;
+                }
+                .contactme {
+                    padding: 10px 5px;
+                    background: #f04e02;
+                    margin-top: 21px;
+                    color: #FFF;
+                    cursor: pointer;
+                }
+            }
+    }
+
+    .techStatcHeading {
+        padding-top: 100px;
+        font-size: 30px;
+        text-decoration: underline;
+        padding-bottom: 50px;
+    }
+
+    .techStack {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 25px;
+        .knowTechs {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            max-width: 50%;
+        }
+        .percentageTechs {
+            width: 100%;
+            .techKnownPercentage {
+                padding: 5px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                .techName {
+                    padding-right: 10px;
+                }
+                .totalPercentage {
+                    height: 15px;
+                    background: #dbded7;
+                    width: 100%;
+                    display: flex;
+                    border-radius: 25px;
+                    .learned {
+                        border-radius: 25px;
+                        height: 15px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        color: #FFF;
+                    }
+                    .learned:hover {
+                        box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+                    }
+                }
+            }
+        }
+    }
+
+    .contactMEBox {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 10px;
+        width: 37%;
+
+        .inputs {
+            display: flex;
+            flex-direction: column;
+            padding: 10px;
+            label {
+                padding-bottom: 5px;
+                font-size: 18px;
+                color: #000;
+            }
+
+            input {
+                padding: 10px;
+                border-radius: 15px;
+                border: 1px solid #bfbebd;
+                outline: none;
+                box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+            }
+            textarea {
+                padding: 10px;
+                border-radius: 15px;
+                border: 1px solid #bfbebd;
+                outline: none;
+                box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+            }
+        }
+
+        .contactme {
+            color: #fff;
+            cursor: pointer;
+            text-align: center;
+            background: #f04e02;
+            width: 20%;
+            padding: 10px 9px;
+            margin: 3%;
+        }
+    }
+}

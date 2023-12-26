@@ -1,0 +1,25 @@
+.contactUsContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 85px 125px;
+
+    .header {
+        font-size: 28px;
+    font-style: italic;
+    }
+    .contact {
+        width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 65px;
+    .shadow {
+        // box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+    }
+    .pointer {
+        cursor: pointer;
+    }
+    }
+}

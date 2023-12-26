@@ -85,7 +85,7 @@ body{
     flex-direction: column;
     align-items: flex-start;
     justify-content: start;
-    background-color: #F0F0F0;
+    // background-color: #F0F0F0;
     margin: 5px;
     width: 240px;
     border-radius: 15px;
@@ -122,7 +122,11 @@ body{
     padding: 5px;
     white-space: nowrap;
     overflow: hidden;
+    color: rgba(2, 6, 12, 0.6);
     text-overflow: ellipsis;
+}
+.areaName {
+    color: rgba(2, 6, 12, 0.6);
 }
 /* width */
 ::-webkit-scrollbar {
@@ -166,4 +170,13 @@ body{
     box-shadow: 0 5px 15px #00000059;
     margin-right: 10px;
     color: #FFF;
+}
+.navItem > a {
+    text-decoration: none;
+    color: #000;
+}
+
+.notLink {
+    text-decoration: none;
+    color: #000; 
 }
