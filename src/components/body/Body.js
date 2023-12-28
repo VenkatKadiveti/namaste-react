@@ -60,7 +60,7 @@ const Body = () => {
     }
 
     return (
-        <div className='restro-container'>
+        <div className='restro-container pt-40 pb-40 pl-60 pr-60'>
             <div className='search'>
                 <div className='search-box'>
                     <input className='search-input' type="text" placeholder='Type here and click enter...' onKeyUp={handleSearch}/>

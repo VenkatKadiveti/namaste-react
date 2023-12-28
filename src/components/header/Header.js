@@ -16,21 +16,22 @@ const Header = ({props}) => {
         }
     }
 
+
     return (
-        <div className='header-container'>
+        <div className='header-container flex flex-row w-full items-center justify-between shadow-xl border-solid border-slate-100'>
             <Link to='/'>
                 <div className='logo-container'>
-                    <img className='logo' src={appConstants.APP_LOGO_URL}></img>
+                    <img className='logo w-40' src={appConstants.APP_LOGO_URL}></img>
                 </div>
             </Link>
-            <div className='navItems-container'>
-                <ul className="navItems">
+            <div className='navItems-container pr-8'>
+                <ul className="navItems flex flex-row items-center justify-between">
                     <li className='onlineStatus'>{onlineStatus ? <img width='20px' src={appConstants.ONLINE_STATUS} /> : <img width='20px' src={appConstants.OFFLINE_STATUS} />}</li>
-                    <li className='navItem'><Link to='/'>Home</Link></li>
-                    <li className='navItem'><Link to='/about'>About Me</Link></li>
-                    <li className='navItem'><Link to='/contact-us'>Contact Me</Link></li>
-                    <li className='navItem'><Link to='/'>Cart</Link></li>
-                    <li className='navItem' onClick={handleLoginBtn}>{btnName}</li>
+                    <li className='navItem text-xl cursor-pointer p-3'><Link to='/'>Home</Link></li>
+                    <li className='navItem text-xl cursor-pointer p-3'><Link to='/about'>About Me</Link></li>
+                    <li className='navItem text-xl cursor-pointer p-3'><Link to='/contact-us'>Contact Me</Link></li>
+                    <li className='navItem text-xl cursor-pointer p-3'><Link to='/'>Cart</Link></li>
+                    <li className='navItem text-xl cursor-pointer p-3' onClick={handleLoginBtn}>{btnName}</li>
                 </ul>
             </div>
         </div>
