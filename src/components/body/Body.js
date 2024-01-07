@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import RestaurantCard from '../card/RestaurantCard';
+import WithPromotedLabel from '../card/withPromotedLabel';
 import API_URLS from '../../utils/apiUrls';
 import Loader from '../loader/Loader';
 import './body.scss';
@@ -11,7 +12,8 @@ const Body = () => {
     const [ searchString , setSearchString ] = useState('');
     const [ nextPage, setNextPage ] = useState(null);
     const [ showMoreFlag, setShowMore ] = useState(false);
-    const onlineStatus = useOnlineStatus()
+    const onlineStatus = useOnlineStatus();
+    const RestaurantCardWithPromoted = WithPromotedLabel(RestaurantCard);
 
     useEffect(() => {
        setTimeout(() => {
@@ -68,7 +70,7 @@ const Body = () => {
                 <button className='filter-btn' onClick={filterTopRated}>Top rated restaurants</button>
             </div>
             <div className='restroCard'>
-                {(searchString && restroList.length === 0) ? (<div className='noData'>No Restorents Found with the name&nbsp;<b>{searchString}</b>.</div>)  : restroList.length !== 0 ? restroList?.map((resObj, index) =>  <RestaurantCard resData={resObj.info} key={resObj.info.id} />) : <Loader />}
+                {(searchString && restroList.length === 0) ? (<div className='noData'>No Restorents Found with the name&nbsp;<b>{searchString}</b>.</div>)  : restroList.length !== 0 ? restroList?.map((resObj, index) => resObj.info.promoted ? <RestaurantCardWithPromoted resData={resObj.info} key={resObj.info.id} /> : <RestaurantCard resData={resObj.info} key={resObj.info.id} />) : <Loader />}
             </div>
             {showMoreFlag ? <Loader /> : ''}
 

@@ -1,13 +1,19 @@
 import Loader from "../loader/Loader";
 import Menu from "../menuCard/Menu";
 import './restroMenu.scss';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import useRestaurantMenu from "../../utils/hooks/useRestraurantMenu";
+import { useSelector } from "react-redux";
+import appConstants from "../../utils/Constants";
 
 const RestroMenu = (props) => {
   const { restaurantId } = useParams();
   const restaurantMenu = useRestaurantMenu(restaurantId);
 
+  const cartItems = useSelector((store) => store.cart.items);
+  const cartItemsValue = useSelector((store) => store.cartValue.value);
+
+  
   //  ALL THE COMMENTED CODE MOVED INTO ONE FILE AND EXPOSE IT AS A CUSTOM HOOK.
   // useEffect(() => {
   //   fetchData();
@@ -80,20 +86,42 @@ const RestroMenu = (props) => {
           <div className="restroItemsSection">
             {
                 restaurantMenu.menu.map(menu => {
+                  if(!menu.card.card['@type'].includes('RestaurantLicenseInfo') && !menu.card.card['@type'].includes('RestaurantAddress')){
                     return (
-                        <div className="catContainer">
-                           <span className="category">{menu?.card?.card?.title} ({menu?.card?.card?.itemCards?.length || menu?.card?.card?.categories?.length})</span> 
-                           { menu?.card?.card.itemCards ? <Menu itemList={menu?.card?.card.itemCards} /> : menu?.card?.card?.categories ? menu?.card?.card?.categories.map(item => <Menu itemList={item.itemCards} />) : '' }
-                        </div>
-                    )
+                      <div className="catContainer">
+                         <span className="category">{menu?.card?.card?.title} ({menu?.card?.card?.itemCards?.length || menu?.card?.card?.categories?.length})</span> 
+                         { menu?.card?.card.itemCards ? <Menu itemList={menu?.card?.card.itemCards} /> : menu?.card?.card?.categories ? menu?.card?.card?.categories.map(item => <Menu itemList={item.itemCards} />) : '' }
+                      </div>
+                  )} else {
+                    return ''
+                  }  
                 })
             }
           </div>
+
+            <div className="footer">
+              <span className="license">
+                <img width="44px" src={appConstants.RESTAURANT_IMG_CDN_URL+restaurantMenu.menu[restaurantMenu.menu.length -2].card.card.imageId} />
+                <span>{restaurantMenu.menu[restaurantMenu.menu.length -2].card.card.text[0]}</span>
+              </span>
+              <div className="area" >
+                <span>{restaurantMenu.menu[restaurantMenu.menu.length -1].card.card.name}</span>
+                <span>(Outlet:{restaurantMenu.menu[restaurantMenu.menu.length -1].card.card.area})</span>
+                <span>{restaurantMenu.menu[restaurantMenu.menu.length -1].card.card.completeAddress}</span>
+              </div>
+            </div>  
+
           <div className="browseMenu">
             <span>BROWSE MENU</span>
           </div>
+          { cartItems.length !== 0 ? (<div className="banner">
+            <span>{cartItems.filter(x=> x.count > 0).length} items | ₹ {Math.round(cartItemsValue)}</span>
+            <Link className="notLink" to='/cart'><span className="notALink">View cart</span></Link>
+        </div>) : ''}
+
+        
         </div>
-      )}
+      )} 
     </div>
   );
 };

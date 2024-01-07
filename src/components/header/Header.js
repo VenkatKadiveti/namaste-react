@@ -1,18 +1,24 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import  appConstants  from '../../utils/Constants';
 import { Link } from 'react-router-dom'
 import useOnlineStatus from '../../utils/hooks/useOnlineStatus';
+import UserContext from '../../utils/contexts/UserContext';
+import { useSelector } from 'react-redux';
 
 const Header = ({props}) => {
 
     const [btnName, setBtnName] = useState('Login');
     const onlineStatus = useOnlineStatus();
-
+    const { loggedInUser, setUserName } = useContext(UserContext);
+    const cartItems = useSelector((store) => store.cart.items)
+    
     const handleLoginBtn = () => {
         if(btnName === 'Login') {
-            setBtnName('Logout')
+            setBtnName('Logout');
+            setUserName('Venkat')
         } else {
             setBtnName('Login')
+            setUserName('Default User')
         }
     }
 
@@ -29,8 +35,9 @@ const Header = ({props}) => {
                     <li className='navItem'><Link to='/'>Home</Link></li>
                     <li className='navItem'><Link to='/about'>About Me</Link></li>
                     <li className='navItem'><Link to='/contact-us'>Contact Me</Link></li>
-                    <li className='navItem'><Link to='/'>Cart</Link></li>
+                    <li className='navItem'><Link to='/cart'>Cart ({cartItems.filter(x=>x.count>0).length}) </Link></li>
                     <li className='navItem' onClick={handleLoginBtn}>{btnName}</li>
+                    <li className='navItem'>{loggedInUser}</li>
                 </ul>
             </div>
         </div>

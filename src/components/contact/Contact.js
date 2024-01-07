@@ -13,7 +13,7 @@ const Contact = () => {
                     <img width='50px' onClick={() => window.open('https://www.instagram.com/venkatkadiveti', '__blank')} className='pointer' src='https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Instagram_logo_2022.svg/2048px-Instagram_logo_2022.svg.png' />
                 </span>
                 <span className="linkedIn shadow">
-                    <img width='50px' onClick={() => window.open('www.linkedin.com/in/venkatanarayana-kadiveti', '__blank')} className='pointer' src='https://cdn1.iconfinder.com/data/icons/logotypes/32/circle-linkedin-512.png' />
+                    <img width='50px' onClick={() => window.open('https://www.linkedin.com/in/venkatanarayana-kadiveti', '_blank')} className='pointer' src='https://cdn1.iconfinder.com/data/icons/logotypes/32/circle-linkedin-512.png' />
                 </span>
                 <span className="twitter shadow">
                     <img width='50px' onClick={() => window.open('https://twitter.com/Venkat387651191', '__blank')} className='pointer' src='https://static.dezeen.com/uploads/2023/07/x-logo-twitter-elon-musk_dezeen_2364_col_0.jpg' />

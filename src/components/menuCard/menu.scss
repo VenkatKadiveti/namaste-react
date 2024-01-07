@@ -26,9 +26,36 @@
         }
     }
     .itemImageContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
         .itemImage {
             width: 200px;
             border: 1px solid lightgray;
+        }
+        .addItem {
+            background: #FFF;
+            font-size: 18px;
+            color: #60b246;
+            cursor: pointer;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+            padding: 5px 20px;
+            margin-top: -15px;
+            border-radius: 10px;
+        }
+        .addItemCounter {
+            color: #60b246;
+            cursor: pointer;
+            background: #fff;
+            border-radius: 10px;
+            margin-top: -15px;
+            padding: 5px 20px;
+            font-size: 18px;
+            box-shadow: 0 5px 15px #00000059;
+            display: flex;
+            justify-content: space-between;
+            width: 27%;
         }
     }
 }

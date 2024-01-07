@@ -1,4 +1,4 @@
-import React, { lazy, Suspense } from "react";
+import React, { lazy, Suspense, useState } from "react";
 import ReactDOM from "react-dom/client";
 import Body from "./components/body/Body";
 import Header from "./components/header/Header";
@@ -8,6 +8,11 @@ import Contact from "./components/contact/Contact";
 import Error from "./components/error/Error";
 import RestroMenu from "./components/restroMenu/RestroMenu";
 import Loader from "./components/loader/Loader";
+import UserContext from "./utils/contexts/UserContext";
+
+import { Provider, useSelector } from "react-redux";
+import appStore from "./utils/Redux/appStore";
+import Cart from "./components/cart/Cart";
 
 const About = lazy(() => import('./components/about/About'))
 const AppLayout = () => {
@@ -15,14 +20,21 @@ const AppLayout = () => {
     window.scrollTo(0, 0);
   };
 
+  const [userName, setUserName] = useState('Default user');
+
+
   return (
-    <div className="app">
-      <Header />
-      <Outlet />
-      <div onClick={moToTop} className="moveTOTop">
-        <span className="iconTop">^</span>
+    <Provider store={appStore}>
+      <UserContext.Provider value={{loggedInUser: userName, setUserName}}>
+      <div className="app">
+        <Header />
+        <Outlet />
+        <div onClick={moToTop} className="moveTOTop">
+          <span className="iconTop">^</span>
+        </div>
       </div>
-    </div>
+      </UserContext.Provider>
+    </Provider>
   );
 };
 
@@ -46,6 +58,10 @@ const appRouterConfig = createBrowserRouter([
             {
                 path: '/details/:restaurantId',
                 element: <RestroMenu />
+            },
+            {
+              path: '/cart',
+              element: <Cart />
             }
         ],
         errorElement: <Error />

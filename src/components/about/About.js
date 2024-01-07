@@ -3,6 +3,7 @@ import API_URLS from "../../utils/apiUrls";
 import appConstants from "../../utils/Constants";
 import Loader from "../loader/Loader";
 import "./about.scss";
+import UserContext from "../../utils/contexts/UserContext";
 
 class About extends React.Component {
   constructor(props) {
@@ -14,7 +15,6 @@ class About extends React.Component {
 
   componentDidMount() {
     this.fetchData();
-    console.log(this.state.userDetails);
   }
 
   async fetchData() {
@@ -39,6 +39,9 @@ class About extends React.Component {
     }
     return (
       <div className="mainContainersection">
+        <UserContext.Consumer>
+          {(data) => {console.log(data)}}
+        </UserContext.Consumer>
         <div className="aboutContainer">
           <div className="userDetails">
             <span className="titleName">So, who am I ?</span>
